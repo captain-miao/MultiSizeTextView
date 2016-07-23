@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MultiSizeTextView</string>
+
+    <string name="before_text" formatted="false">before </string>
+    <string name="center_text" formatted="false">-center-</string>
+    <string name="after_text" formatted="false">after</string>
+</resources>
