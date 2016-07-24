@@ -1,5 +1,22 @@
 MultiSizeTextView
+Android library to show multiple text size in a textView, only support text, size, color.
+```java
+    private String mDefaultText = "";
+    private float  mDefaultTextSize = 14;
+    private int    mDefaultTextColor = Color.BLACK;
 
+    private String mBeforeText;
+    private int    mBeforeTextColor;
+    private float  mBeforeTextSize;
+
+    private String mCenterText;
+    private int    mCenterTextColor;
+    private float  mCenterTextSize;
+
+    private String mAfterText;
+    private int    mAfterTextColor;
+    private float  mAfterTextSize;
+```
 ### Gradle
 Get library from  [oss.sonatype.org.io](https://oss.sonatype.org/content/repositories/snapshots)
 ```java
@@ -44,6 +61,15 @@ dependencies {
     textView.setCenterText("MultiSizeTextView");
 ```
 
+### data binding
+```
+    app:centerText="@{centerText}"
+
+    @BindingAdapter({"centerText"})
+    public static void setMultiSizeTextViewCenterText(MultiSizeTextView textView, String text) {
+        textView.setCenterText(text);
+    }
+```
 
 ## License
 The MIT License (MIT)
