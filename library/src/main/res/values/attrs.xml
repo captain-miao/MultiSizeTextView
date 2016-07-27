@@ -21,12 +21,17 @@
         <attr name="beforeText" format="string|reference" />
         <attr name="beforeTextSize" format="dimension" />
         <attr name="beforeTextColor" format="color|reference" />
+        <attr name="beforeTextStyle" format="reference" />
+
         <attr name="centerText" format="string|reference" />
         <attr name="centerTextSize" format="dimension" />
         <attr name="centerTextColor" format="color|reference" />
+        <attr name="centerTextStyle" format="reference" />
+
         <attr name="afterText" format="string|reference" />
         <attr name="afterTextSize" format="dimension" />
         <attr name="afterTextColor" format="color|reference" />
+        <attr name="afterTextStyle" format="reference" />
     </declare-styleable>
 
 </resources>
