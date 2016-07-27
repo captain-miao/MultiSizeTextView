@@ -2,7 +2,7 @@ MultiSizeTextView
 Android library to show multiple text size in a textView, only support text, size, color.
 
 ## screenshot
-![screenshot_mutil_size](https://raw.githubusercontent.com/captain-miao/me.github.com/master/jpg/screenshot_mutil_size.gif "screenshot_mutil_size")
+![screenshot_mutil_size](https://raw.githubusercontent.com/captain-miao/me.github.com/master/jpg/screenshot_mutil_size.jpg  "screenshot_mutil_size")
 
 
 
