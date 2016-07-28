@@ -1,5 +1,5 @@
 MultiSizeTextView
-Android library to show multiple text size in a textView, only support text, size, color.
+Android library to show multiple text size in a textView, only support text, size, color, textStyle.
 
 ## screenshot
 ![screenshot_mutil_size](https://raw.githubusercontent.com/captain-miao/me.github.com/master/jpg/screenshot_mutil_size.jpg  "screenshot_mutil_size")
@@ -10,18 +10,6 @@ Android library to show multiple text size in a textView, only support text, siz
     private String mDefaultText = "";
     private float  mDefaultTextSize = 14;
     private int    mDefaultTextColor = Color.BLACK;
-
-    private String mBeforeText;
-    private int    mBeforeTextColor;
-    private float  mBeforeTextSize;
-
-    private String mCenterText;
-    private int    mCenterTextColor;
-    private float  mCenterTextSize;
-
-    private String mAfterText;
-    private int    mAfterTextColor;
-    private float  mAfterTextSize;
 ```
 ### Gradle
 Get library from  [oss.sonatype.org.io](https://oss.sonatype.org/content/repositories/snapshots)
@@ -35,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.captain-miao:multisizetextview:1.0.0-SNAPSHOT'
+    compile 'com.github.captain-miao:multisizetextview:1.0.0'
 }
 
 ```
@@ -50,7 +38,8 @@ dependencies {
         app:beforeText="@string/before_text"
         app:beforeTextColor="@color/red"
         app:beforeTextSize="@dimen/text_size_small"
-
+        app:beforeTextStyle="bold"
+        
         app:centerText="@string/app_name"
         app:centerTextColor="@color/gray"
         app:centerTextSize="@dimen/text_size_big"
@@ -58,6 +47,7 @@ dependencies {
         app:afterText="@string/after_text"
         app:afterTextColor="@color/blue"
         app:afterTextSize="@dimen/text_size_small"
+        app:afterTextStyle="bold"
         />
 ```
 ### change the center text

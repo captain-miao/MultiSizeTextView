@@ -20,13 +20,16 @@
         app:beforeText="@string/before_text"
         app:beforeTextColor="@color/red"
         app:beforeTextSize="@dimen/text_size_small"
+        app:beforeTextStyle="bold"
 
         app:centerText="@string/app_name"
         app:centerTextColor="@color/gray"
         app:centerTextSize="@dimen/text_size_big"
+        app:centerTextStyle="italic"
 
         app:afterText="@string/after_text"
         app:afterTextColor="@color/blue"
         app:afterTextSize="@dimen/text_size_small"
+        app:afterTextStyle="bold"
         />
 </RelativeLayout>

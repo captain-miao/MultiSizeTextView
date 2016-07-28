@@ -21,17 +21,36 @@
         <attr name="beforeText" format="string|reference" />
         <attr name="beforeTextSize" format="dimension" />
         <attr name="beforeTextColor" format="color|reference" />
-        <attr name="beforeTextStyle" format="reference" />
+        <attr name="beforeTextStyle"/>
 
         <attr name="centerText" format="string|reference" />
         <attr name="centerTextSize" format="dimension" />
         <attr name="centerTextColor" format="color|reference" />
-        <attr name="centerTextStyle" format="reference" />
+        <attr name="centerTextStyle"/>
 
         <attr name="afterText" format="string|reference" />
         <attr name="afterTextSize" format="dimension" />
         <attr name="afterTextColor" format="color|reference" />
-        <attr name="afterTextStyle" format="reference" />
+        <attr name="afterTextStyle"/>
     </declare-styleable>
+
+
+    <attr name="beforeTextStyle">
+        <flag name="normal" value="0" />
+        <flag name="bold" value="1" />
+        <flag name="italic" value="2" />
+    </attr>
+
+    <attr name="centerTextStyle">
+        <flag name="normal" value="0" />
+        <flag name="bold" value="1" />
+        <flag name="italic" value="2" />
+    </attr>
+
+    <attr name="afterTextStyle">
+        <flag name="normal" value="0" />
+        <flag name="bold" value="1" />
+        <flag name="italic" value="2" />
+    </attr>
 
 </resources>

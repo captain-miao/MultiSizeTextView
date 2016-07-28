@@ -10,6 +10,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -22,18 +23,22 @@ public class MultiSizeTextView extends TextView {
     private String mDefaultText = "";
     private float  mDefaultTextSize = 14;
     private int    mDefaultTextColor = Color.BLACK;
+    private int    mDefaultTextStyle = -1;
 
     private String mBeforeText;
     private int    mBeforeTextColor;
     private float  mBeforeTextSize;
+    private int    mBeforeTextStyle;
 
     private String mCenterText;
     private int    mCenterTextColor;
     private float  mCenterTextSize;
+    private int    mCenterTextStyle;
 
     private String mAfterText;
     private int    mAfterTextColor;
     private float  mAfterTextSize;
+    private int    mAfterTextStyle;
 
 
 
@@ -67,6 +72,7 @@ public class MultiSizeTextView extends TextView {
         mBeforeText = a.getString(R.styleable.MultiSizeTextView_beforeText);
         mBeforeTextColor = a.getColor(R.styleable.MultiSizeTextView_beforeTextColor, mDefaultTextColor);
         mBeforeTextSize = a.getDimension(R.styleable.MultiSizeTextView_beforeTextSize, mDefaultTextSize);
+        mBeforeTextStyle = a.getInt(R.styleable.MultiSizeTextView_beforeTextStyle, mDefaultTextStyle);
 
         mCenterText = a.getString(R.styleable.MultiSizeTextView_centerText);
         if(TextUtils.isEmpty(mCenterText) && !TextUtils.isEmpty(mDefaultText)){
@@ -74,10 +80,12 @@ public class MultiSizeTextView extends TextView {
         }
         mCenterTextColor = a.getColor(R.styleable.MultiSizeTextView_centerTextColor, mDefaultTextColor);
         mCenterTextSize = a.getDimension(R.styleable.MultiSizeTextView_centerTextSize, mDefaultTextSize);
+        mCenterTextStyle = a.getInt(R.styleable.MultiSizeTextView_centerTextStyle, mDefaultTextStyle);
 
         mAfterText = a.getString(R.styleable.MultiSizeTextView_afterText);
         mAfterTextColor = a.getColor(R.styleable.MultiSizeTextView_afterTextColor, mDefaultTextColor);
         mAfterTextSize = a.getDimension(R.styleable.MultiSizeTextView_afterTextSize, mDefaultTextSize);
+        mAfterTextStyle = a.getInt(R.styleable.MultiSizeTextView_afterTextStyle, mDefaultTextStyle);
 
         a.recycle();
         onUpdateContent();
@@ -113,6 +121,10 @@ public class MultiSizeTextView extends TextView {
                     0, beforeTextLen, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
             mSpannableString.setSpan(new ForegroundColorSpan(mBeforeTextColor),
                     0, beforeTextLen, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            if(mBeforeTextStyle >= 0) {
+                mSpannableString.setSpan(new StyleSpan(mBeforeTextStyle),
+                        0, beforeTextLen, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            }
         }
 
         if (centerTextLen > 0) {
@@ -120,6 +132,10 @@ public class MultiSizeTextView extends TextView {
                     beforeTextLen, beforeTextLen + centerTextLen, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
             mSpannableString.setSpan(new ForegroundColorSpan(mCenterTextColor),
                     beforeTextLen, beforeTextLen + centerTextLen, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            if(mCenterTextStyle >= 0) {
+                mSpannableString.setSpan(new StyleSpan(mCenterTextStyle),
+                        beforeTextLen, beforeTextLen + centerTextLen, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            }
         }
 
         if (afterTextLen > 0) {
@@ -127,6 +143,10 @@ public class MultiSizeTextView extends TextView {
                     beforeTextLen + centerTextLen, mSpannableString.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
             mSpannableString.setSpan(new ForegroundColorSpan(mAfterTextColor),
                     beforeTextLen + centerTextLen, mSpannableString.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            if(mAfterTextStyle >= 0) {
+                mSpannableString.setSpan(new StyleSpan(mAfterTextStyle),
+                        beforeTextLen + centerTextLen, mSpannableString.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            }
         }
 
 
@@ -213,5 +233,29 @@ public class MultiSizeTextView extends TextView {
     public void setAfterTextSize(float afterTextSize) {
         mAfterTextSize = afterTextSize;
         onUpdateContent();
+    }
+
+    public int getAfterTextStyle() {
+        return mAfterTextStyle;
+    }
+
+    public void setAfterTextStyle(int afterTextStyle) {
+        mAfterTextStyle = afterTextStyle;
+    }
+
+    public int getCenterTextStyle() {
+        return mCenterTextStyle;
+    }
+
+    public void setCenterTextStyle(int centerTextStyle) {
+        mCenterTextStyle = centerTextStyle;
+    }
+
+    public int getBeforeTextStyle() {
+        return mBeforeTextStyle;
+    }
+
+    public void setBeforeTextStyle(int beforeTextStyle) {
+        mBeforeTextStyle = beforeTextStyle;
     }
 }
